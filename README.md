@@ -38,6 +38,23 @@ All endpoints are prefixed with `/api/ragflow`.
 ### `POST /api/ragflow/query`
 Forwards the request body to the configured RAGFlow query endpoint. The response from RAGFlow is returned unchanged.
 
+### `POST /api/ragflow/woop`
+Builds a WOOP (Wish, Outcome, Obstacle, Plan) prompt from the provided learner profile and forwards it to the configured RAGFlow
+endpoint. The request body must include:
+
+- `personalInfo` – Required. A string, array, or object describing the learner (for example name, role, or background details).
+- `currentSkill` – Required. The learner's current skill or proficiency description.
+- `goals` – Required. Target outcomes for the learner. Provide a string or an array of goal statements.
+- `timeframe` – Optional. One of `24h`, `4w`, `3-12m`, or `none`. Defaults to `none` when omitted.
+- `resources` – Optional. Array of learning resources retrieved from your vector database. Each entry can include `title`,
+  `url`, `summary`, and other descriptive metadata. These are referenced in the generated plan.
+- `ragflow` – Optional. Object used to control how the prompt is merged into the outgoing RAGFlow payload. Supply `payload`
+  to start from a predefined payload, `promptField` to inject the prompt into a nested property (dot notation), or set
+  `appendAsMessage` to `true` to append the prompt to an existing `messages` array. When omitted the service sends `{ "query":
+  "<prompt>" }`.
+
+The endpoint returns the raw response from RAGFlow, which should contain the generated WOOP report.
+
 ### `GET /api/ragflow/datasets`
 Retrieves dataset information from RAGFlow. This endpoint requires the `RAGFLOW_DATASETS_PATH` environment variable.
 
