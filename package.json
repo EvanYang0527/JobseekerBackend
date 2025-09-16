@@ -1,7 +1,7 @@
 {
   "name": "jobseekerbackend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend service for the Jobseeker platform integrating with RAGFlow.",
   "homepage": "https://github.com/EvanYang0527/JobseekerBackend#readme",
   "bugs": {
     "url": "https://github.com/EvanYang0527/JobseekerBackend/issues"
@@ -13,8 +13,19 @@
   "license": "ISC",
   "author": "Yifan Yang",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "echo \"No automated tests configured\""
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
