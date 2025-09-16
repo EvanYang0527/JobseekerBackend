@@ -1,0 +1,20 @@
+{
+  "name": "jobseekerbackend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/EvanYang0527/JobseekerBackend#readme",
+  "bugs": {
+    "url": "https://github.com/EvanYang0527/JobseekerBackend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvanYang0527/JobseekerBackend.git"
+  },
+  "license": "ISC",
+  "author": "Yifan Yang",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
